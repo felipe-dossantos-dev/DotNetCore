@@ -10,7 +10,7 @@ namespace RPSService
         private static readonly string ROCK = "R";
         private static readonly string PAPER = "P";
         private static readonly string SCISSOR = "S";
-        private readonly ISet<string> _validStrategies = new HashSet<string>{ ROCK, PAPER, SCISSOR };
+        private static readonly ISet<string> VALID_STRATEGIES = new HashSet<string>{ ROCK, PAPER, SCISSOR };
 
         public IList<string> TournamentWinner(IList<object> tournament) {
             if (tournament.Count == 0) {
@@ -98,7 +98,7 @@ namespace RPSService
 
         private void ValidateStrategies(IList<IList<string>> game)
         {
-            var noSuchStrategy = game.Count(p => !_validStrategies.Contains(p[1])) > 0;
+            var noSuchStrategy = game.Count(p => !VALID_STRATEGIES.Contains(p[1])) > 0;
             if (noSuchStrategy)
             {
                 throw new NoSuchStrategyException("some player has a invalid stratety;");
