@@ -2,19 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ConsultaComponent } from './consulta/consulta.component';
-import { FormularioComponent } from './formulario/formulario.component';
+import { BooksComponent } from './books/books.component';
+import { BookComponent } from './books/book/book.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConsultaComponent,
-    FormularioComponent
+    BooksComponent,
+    BookComponent,
+    BookListComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
