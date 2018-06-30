@@ -15,7 +15,7 @@ export class BookComponent implements OnInit {
   constructor(private bookService: BookService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.bookService.selectedBook = new Book();
+    this.resetForm();
   }
 
   resetForm(form?: NgForm) {

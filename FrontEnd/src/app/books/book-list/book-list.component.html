@@ -1,3 +1,19 @@
-<p>
-  book-list works!
-</p>
+<table class="table table-sm table-hover">
+  <tr>
+    <th>Name - Authors</th>
+    <th>Edition</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let book of bookService.bookList">
+    <td>{{book.name}} - {{book.authors}}</td>
+    <td>{{book.edition}}</td>
+    <td>
+      <a class="btn" (click)="showForEdit(book)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger" (click)="onDelete(book.id)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>
