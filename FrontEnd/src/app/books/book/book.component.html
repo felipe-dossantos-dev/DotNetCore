@@ -1,3 +1,69 @@
-<p>
-  book works!
-</p>
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+  
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="bookService.selectedBook.id">
+  
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="bookService.selectedBook.name" placeholder="Name" required maxlength="300">
+      <div class="validation-error" *ngIf="name.invalid && name.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="authors" #authors="ngModel" [(ngModel)]="bookService.selectedBook.authors" placeholder="Authors" required maxlength="300">
+      <div class="validation-error" *ngIf="authors.invalid && authors.touched">This Field is Required.</div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="publishYear" #publishYear="ngModel" [(ngModel)]="bookService.selectedBook.publishYear" placeholder="Publish Year" maxlength="4">
+      <div class="validation-error" *ngIf="publishYear.invalid && publishYear.touched">This Field has max length of 4 and has to be numeric.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="edition" #edition="ngModel" [(ngModel)]="bookService.selectedBook.edition" placeholder="Edition" required maxlength="100">
+      <div class="validation-error" *ngIf="edition.invalid && edition.touched">This Field is Required.</div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="isbn" #isbn="ngModel" [(ngModel)]="bookService.selectedBook.isbn"
+        placeholder="ISBN" required maxlength="13">
+        <div class="validation-error" *ngIf="isbn.invalid && isbn.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="price" #price="ngModel" [(ngModel)]="bookService.selectedBook.price" placeholder="Price" required>
+      <div class="validation-error" *ngIf="price.invalid && price.touched">This Field is Required.</div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="buyDate" #buyDate="ngModel" [(ngModel)]="bookService.selectedBook.buyDate" placeholder="Buy Date" required>
+      <div class="validation-error" *ngIf="buyDate.invalid && buyDate.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="buyPrice" #buyPrice="ngModel" [(ngModel)]="bookService.selectedBook.buyPrice" placeholder="Buy Price" required>
+      <div class="validation-error" *ngIf="buyPrice.invalid && buyPrice.touched">This Field is Required.</div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="sellDate" #sellDate="ngModel" [(ngModel)]="bookService.selectedBook.sellDate" placeholder="Sell Date">
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="sellPrice" #sellPrice="ngModel" [(ngModel)]="bookService.selectedBook.sellPrice" placeholder="Sell Price">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!bookForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(bookForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>

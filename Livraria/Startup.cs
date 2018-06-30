@@ -32,6 +32,13 @@ namespace Livraria
             services.AddEntityFrameworkSqlite();
             services.AddDbContext<LivrariaContext>();
             services.AddAutoMapper();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
 
             // Add application services.
             services.AddScoped<IBookRepository, BookRepository>();
@@ -45,7 +52,7 @@ namespace Livraria
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors();
             app.UseMvc();
         }
     }

@@ -6,12 +6,14 @@ using Livraria.Domain;
 using Livraria.Model;
 using Livraria.Repositories;
 using Livraria.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Livraria.Controllers
 {
     [Route("api/books")]
     [Produces("application/json")]
+    [EnableCors("MyPolicy")]
     public class BooksController : Controller
     {
         private readonly IBookService _service;
