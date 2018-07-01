@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, RequestMethod } from '@angular/http';
 import { Book } from './book.model';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class BookService {
 
   selectedBook: Book;
   bookList: Book[];
-  constructor(private http: Http) { }
+  constructor(private http: Http) {}
 
   postBook(book: Book) {
     var body = JSON.stringify(book);

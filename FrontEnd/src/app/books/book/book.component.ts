@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../shared/book.service';
-import { Book } from '../shared/book.model';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Book } from '../shared/book.model';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css'],
-  providers: [BookService]
 })
 export class BookComponent implements OnInit {
 
@@ -30,8 +29,9 @@ export class BookComponent implements OnInit {
       price: 0.00,
       buyDate: '',
       buyPrice: 0.00,
-    }
+    };
   }
+
 
   onSubmit(form: NgForm) {
     if (form.value.id == null) {

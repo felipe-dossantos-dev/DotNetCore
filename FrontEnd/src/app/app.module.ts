@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './books/book/book.component';
 import { BookListComponent } from './books/book-list/book-list.component';
-import { BookService } from './books/shared/book.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -22,9 +22,10 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
-  providers: [BookService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
